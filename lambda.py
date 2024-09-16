@@ -1,3 +1,3 @@
 
 def handler(event, context):
-    return 'Hello AWS Lambda'
+    print('Hello Cam from AWS Lambda!')
