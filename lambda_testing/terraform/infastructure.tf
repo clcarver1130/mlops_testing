@@ -18,10 +18,10 @@ resource "aws_ecr_lifecycle_policy" "lambda_repo_policy" {
       {
         rulePriority = 1
         description  = "Expire images older than 14 days"
-        selection    = {
-          tagStatus = "untagged"
-          countType = "sinceImagePushed"
-          countUnit = "days"
+        selection = {
+          tagStatus   = "untagged"
+          countType   = "sinceImagePushed"
+          countUnit   = "days"
           countNumber = 90
         }
         action = {
@@ -37,7 +37,7 @@ resource "aws_lambda_function" "hello_world" {
   function_name = "hello-world"
   role          = aws_iam_role.lambda_exec.arn
   package_type  = "Image"
-  image_uri     = "396577395766.dkr.ecr.us-east-1.amazonaws.com/lambda-placeholder:latest" # Placeholder image URI
+  image_uri = "396577395766.dkr.ecr.us-east-1.amazonaws.com/lambda-placeholder:latest" # Placeholder image URI
   memory_size   = 128
   timeout       = 5
 }
@@ -49,11 +49,11 @@ resource "aws_iam_role" "lambda_exec" {
     Version = "2012-10-17"
     Statement = [
       {
-        Effect    = "Allow"
+        Effect = "Allow"
         Principal = {
           Service = "lambda.amazonaws.com"
         }
-        Action    = "sts:AssumeRole"
+        Action = "sts:AssumeRole"
       }
     ]
   })
