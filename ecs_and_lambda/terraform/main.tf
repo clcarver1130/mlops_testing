@@ -40,7 +40,7 @@ provider "aws" {
       function_name = "lambda-to-ecs-test"
       role          = aws_iam_role.lambda_role.arn
       package_type  = "Image"
-      image_uri     = "public.ecr.aws/lambda/python:3.12" # Placeholder image URI
+      image_uri     = "396577395766.dkr.ecr.us-east-1.amazonaws.com/lambda-to-ecs-repo:latest" # Placeholder image URI
     }
 
     resource "aws_ecs_cluster" "ecs_cluster" {
@@ -52,7 +52,7 @@ provider "aws" {
       container_definitions    = jsonencode([
         {
           name      = "ecs-container",
-          image     = "amazonlinux", # Placeholder image
+          image     = "396577395766.dkr.ecr.us-east-1.amazonaws.com/ecs-task-repo:latest", # Placeholder image
           cpu       = 256,
           memory    = 512,
           essential = true,
