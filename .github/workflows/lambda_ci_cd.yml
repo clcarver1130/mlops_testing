@@ -1,9 +1,9 @@
 name: Backend CI
 on:
   push:
-    branches: [ main ]
+    branches: [ off ]
   pull_request:
-    branches: [ main ]
+    branches: [ off ]
 env:
   AWS_REGION: us-east-1
 permissions:
