@@ -3,9 +3,12 @@ import boto3
 
 def handler(event, context):
 
+    print('Starting Lambda function...')
+
     action = event.get('action')
 
     if action == 'ecs':
+        print('Starting ECS task...')
         client = boto3.client('ecs')
         response = client.run_task(
             cluster='ecs-test-cluster',
@@ -18,6 +21,5 @@ def handler(event, context):
                 }
             }
         )
-        return response
     else:
         print('Hello Cam from AWS Lambda!')
