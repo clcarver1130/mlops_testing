@@ -27,7 +27,9 @@ resource "aws_iam_role_policy" "lambda_policy" {
       {
         Action = [
           "ecs:RunTask",
-          "iam:PassRole"
+          "iam:PassRole",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
         ],
         Effect   = "Allow",
         Resource = "*"

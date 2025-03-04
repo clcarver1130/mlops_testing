@@ -1,14 +1,16 @@
 import boto3
-
+import logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 def handler(event, context):
 
-    print('Starting Lambda function...')
+    logger.info('Starting Lambda function...')
 
     action = event.get('action')
 
     if action == 'ecs':
-        print('Starting ECS task...')
+        logger.info('Starting ECS task...')
         client = boto3.client('ecs')
         response = client.run_task(
             cluster='ecs-test-cluster',
@@ -22,4 +24,4 @@ def handler(event, context):
             }
         )
     else:
-        print('Hello Cam from AWS Lambda!')
+        logger.info('Hello Cam from AWS Lambda!')
