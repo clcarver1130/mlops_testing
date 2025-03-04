@@ -1,4 +1,4 @@
-FROM amazonlinux
+FROM public.ecr.aws/lambda/python:3.8
 
 COPY ecs_and_lambda/ecs/ecs.py /app/ecs.py
 

@@ -109,6 +109,7 @@ resource "aws_iam_role_policy" "ecs_task_execution_policy" {
           "logs:PutLogEvents",
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage",
+          "ecr:GetAuthorizationToken",
           "ecs:RunTask"
         ],
         Effect   = "Allow",
