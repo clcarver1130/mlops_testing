@@ -18,7 +18,7 @@ def handler(event, context):
             launchType='FARGATE',
             networkConfiguration={
                 'awsvpcConfiguration': {
-                    'subnets': ['subnet-00a1991400af07d29'],
+                    'subnets': ['subnet-0cbf103deacf0666b'],
                     'assignPublicIp': 'ENABLED'
                 }
             }
