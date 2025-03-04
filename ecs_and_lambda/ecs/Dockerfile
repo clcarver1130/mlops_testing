@@ -1,4 +1,7 @@
-FROM public.ecr.aws/lambda/python:3.8
+FROM amazonlinux
+
+# Install Python
+RUN yum install -y python3
 
 COPY ecs_and_lambda/ecs/ecs.py /app/ecs.py
 
